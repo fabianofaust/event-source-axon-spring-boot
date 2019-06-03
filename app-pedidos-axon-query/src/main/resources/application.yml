@@ -1,0 +1,37 @@
+#server:
+#  port: 8082
+#
+#spring:
+#  datasource:
+#    url: jdbc:postgresql://localhost:5432/bank-account-db
+#    username: fabiano
+#    password: 123456
+#  jpa:
+#    database-platform: org.hibernate.dialect.PostgreSQL94Dialect
+#    show-sql: true
+#    generate-ddl: true
+#    hibernate:
+#      ddl-auto: create-drop
+#    properties:
+#      hibernate.temp.use_jdbc_metadata_defaults: false
+server:
+  port: 8086
+
+#spring:
+#  datasource:
+#    url: jdbc:mysql://localhost:3306/pedido_query
+#    username: root
+#    password: 123456
+#  jpa:
+#    database-platform: org.hibernate.dialect.MySQL5Dialect
+#    hibernate.ddl-auto: update
+#    generate-ddl: true
+#    show-sql: true
+    
+axon:
+  amqp:
+    exchange: pedido.events
+  eventhandling:
+    processors:
+      amqpEvents:
+        source: complaintEventsMethod
